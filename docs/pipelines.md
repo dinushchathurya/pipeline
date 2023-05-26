@@ -395,8 +395,8 @@ In `v1beta1`, you can also reference a `Tekton bundle` using OCI bundle syntax, 
 
 
 {{< tabs >}}
-{{< tab "v1 & v1beta1" >}}
-```yaml
+{{< tab header="v1 & v1beta1" code=true lang="yaml" >}}
+
 spec:
   taskRef:
     resolver: bundles
@@ -407,18 +407,18 @@ spec:
       value: echo-task
     - name: kind
       value: Task
-```
+
 {{< /tab >}}
 
-{{< tab "v1beta1" >}}
-```yaml
+{{< tab header="v1beta1" code=true lang="yaml" >}}
+
 spec:
   tasks:
     - name: hello-world
       taskRef:
         name: echo-task
         bundle: docker.com/myrepo/mycatalog
-```
+
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -429,8 +429,8 @@ You may also specify a `tag` as you would with a Docker image which will give yo
 repeatable reference to a `Task`.
 
 {{< tabs >}}
-{{< tab "v1 & v1beta1" >}}
-```yaml
+{{< tab header="v1 & v1beta1" code=true lang="yaml" >}}
+
 spec:
   taskRef:
     resolver: bundles
@@ -441,26 +441,26 @@ spec:
       value: echo-task
     - name: kind
       value: Task
-```
+
 {{< /tab >}}
 
-{{< tab "v1beta1" >}}
-```yaml
+{{< tab header="v1beta1" code=true lang="yaml" >}}
+
 spec:
   tasks:
     - name: hello-world
       taskRef:
         name: echo-task
         bundle: docker.com/myrepo/mycatalog:v1.0.1
-```
+
 {{< /tab >}}
 {{< /tabs >}}
 
 You may also specify a fixed digest instead of a tag.
 
 {{< tabs >}}
-{{< tab "v1 & v1beta1" >}}
-```yaml
+{{< tab header="v1 & v1beta1" code=true lang="yaml" >}}
+
 spec:
   taskRef:
     resolver: bundles
@@ -471,18 +471,18 @@ spec:
       value: echo-task
     - name: kind
       value: Task
-```
+
 {{< /tab >}}
 
-{{< tab "v1beta1" >}}
-```yaml
+{{< tab header="v1beta1" code=true lang="yaml" >}}
+
 spec:
   tasks:
     - name: hello-world
       taskRef:
         name: echo-task
         bundle: docker.io/myrepo/mycatalog@sha256:abc123
-```
+
 {{< /tab >}}
 {{< /tabs >}}
 

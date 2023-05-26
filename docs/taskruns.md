@@ -121,8 +121,8 @@ You can reference a `Tekton bundle` in a `TaskRef` in both `v1` and `v1beta1` us
 In `v1beta1`, you can also reference a `Tekton bundle` using OCI bundle syntax, which has been deprecated in favor of remote resolution. The example shown below for `v1beta1` uses OCI bundle syntax, and requires enabling `enable-tekton-oci-bundles: "true"` feature flag.
 
 {{< tabs >}}
-{{< tab "v1 & v1beta1" >}}
-```yaml
+{{< tab header="v1 & v1beta1" code=true lang="yaml" >}}
+
 spec:
   taskRef:
     resolver: bundles
@@ -133,16 +133,16 @@ spec:
       value: echo-task
     - name: kind
       value: Task
-```
+
 {{< /tab >}}
 
-{{< tab "v1beta1" >}}
-```yaml
+{{< tab header="v1beta1" code=true lang="yaml" >}}
+
 spec:
 taskRef:
   name: echo-task
   bundle: docker.io/myrepo/mycatalog
-```
+
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -152,8 +152,8 @@ Here, the `bundle` field is the full reference url to the artifact. The name is 
 You may also specify a `tag` as you would with a Docker image which will give you a repeatable reference to a `Task`.
 
 {{< tabs >}}
-{{< tab "v1 & v1beta1" >}}
-```yaml
+{{< tab header="v1 & v1beta1" code=true lang="yaml" >}}
+
 spec:
   taskRef:
     resolver: bundles
@@ -164,24 +164,24 @@ spec:
       value: echo-task
     - name: kind
       value: Task
-```
+
 {{< /tab >}}
 
-{{< tab "v1beta1" >}}
-```yaml
+{{< tab header="v1beta1" code=true lang="yaml" >}}
+
 spec:
 taskRef:
   name: echo-task
   bundle: docker.io/myrepo/mycatalog:v1.0.1
-```
+
 {{< /tab >}}
 {{< /tabs >}}
 
 You may also specify a fixed digest instead of a tag which ensures the referenced task is constant.
 
 {{< tabs >}}
-{{< tab "v1 & v1beta1" >}}
-```yaml
+{{< tab header="v1 & v1beta1" code=true lang="yaml" >}}
+
 spec:
   taskRef:
     resolver: bundles
@@ -192,16 +192,16 @@ spec:
       value: echo-task
     - name: kind
       value: Task
-```
+
 {{< /tab >}}
 
-{{< tab "v1beta1" >}}
-```yaml
+{{< tab header="v1beta1" code=true lang="yaml" >}}
+
 spec:
 taskRef:
   name: echo-task
   bundle: docker.io/myrepo/mycatalog@sha256:abc123
-```
+
 {{< /tab >}}
 {{< /tabs >}}
 
@@ -657,8 +657,8 @@ spec:
 An example TaskRun definition could look like:
 
 {{< tabs >}}
-{{< tab "v1" >}}
-```yaml
+{{< tab header="v1" code=true lang="yaml" >}}
+
 apiVersion: tekton.dev/v1
 kind: TaskRun
 metadata:
@@ -678,11 +678,11 @@ spec:
           cpu: 100m
         limits:
           cpu: 500m
-```
+
 {{< /tab>}}
 
-{{< tab "v1beta1" >}}
-```yaml
+{{< tab header="v1beta1" code=true lang="yaml" >}}
+
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
@@ -702,7 +702,7 @@ spec:
           cpu: 100m
         limits:
           cpu: 500m
-```
+
 {{< /tab>}}
 {{< /tabs >}}
 `StepSpecs` and `SidecarSpecs` must include the `name` field and may include `resources`.
